@@ -1,0 +1,26 @@
+/* ===== service2.css ===== */
+
+/* Chỉ áp dụng riêng cho Buffet Sáng */
+
+/* Làm ảnh Buffet bo góc đẹp hơn */
+img {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Chỉnh màu đặc biệt cho banner nhỏ */
+.banner-small {
+  filter: brightness(0.8);
+}
+
+/* Chữ tiêu đề About buffet */
+h2 {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #e60000;
+}
+
+/* Căn giữa Footer cho đẹp */
+footer {
+  font-size: 14px;
+}

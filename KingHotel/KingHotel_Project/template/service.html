@@ -1,0 +1,214 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KingHotel - Dịch Vụ</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'asset/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/service.css' %}">
+    <script src="{% static 'asset/js/service.js' %}"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" class=".bg-body">
+    <!-- Navbar -->
+    <!-- Navbar Đen -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark " data-bs-theme="dark">
+        <div class="container">
+            <div class="text-white d-flex align-items-center gap-4">
+                <span><i class="fa-solid fa-phone-volume me-1"></i> 038711111</span>
+                <span><i class="fa-brands fa-rocketchat me-1"></i> Chat with Us</span>
+            </div>
+            <a class="nav-link text-danger text-center" href="{% url 'index'%}">
+                <img src="{% static 'asset/images/logo1.png' %}" alt="Logo" style="height: 80px;">
+            </a>
+            <div class="d-flex">
+                <a class="btn btn-light" href="{% url 'login'%}">
+                    <i class="fa-solid fa-user"></i>
+                    Đăng Nhập</a>
+                <a class="btn btn-light ms-3" href="{% url 'hoivien'%}">Đăng Ký Hội Viên</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Navbar Chính -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top border-bottom border-danger ">
+        <div class="container sticky-top">
+            <a class="navbar-brand fw-bold text-danger" href="{% url 'index'%}">
+                <img src="{% static 'asset/images/logo.png' %}" alt="KingHotel Logo" height="40" class="me-2">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <div class="navbar-nav mx-auto">
+                    <div class="nav-item me-3"> <a class="nav-link" href="{% url 'index'%}">Home</a></div>
+                    <div class="nav-item me-3"> <a class="nav-link" href="{% url 'about'%}">About</a></div>
+                    <div class="nav-item me-3"> <a class="nav-link active" href="{% url 'service'%}">Dịch vụ</a></div>
+                    <div class="nav-item me-3"> <a class="nav-link" href="{% url 'contact'%}">Contact</a></div>
+                </div>
+                <a class="btn btn-danger ms-lg-3 mt-3 mt-lg-0" href="{% url 'xemphong'%}">Đặt Ngay</a>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Banner nhỏ -->
+    <section class="banner-small" style="background-image: url('{% static 'asset/images/baner.jpg' %}')">
+    </section>
+
+
+    <section class="container my-5">
+        <h2 class="text-center text-danger mb-5 " style="font-weight: bolder;">Dịch Vụ Nổi Bật</h2>
+
+        <div class="row g-4">
+            <!-- Dịch vụ 1 -->
+            <div class="col-md-4">
+                <div class="service-card text-center p-4 shadow-sm">
+                    <i class="fas fa-spa fa-3x text-danger mb-3"></i>
+                    <h5 class="mb-3">Spa & Massage</h5>
+                    <p>
+                        Thư giãn cơ thể, tinh thần với dịch vụ spa chuẩn 5 sao. Chúng tôi cung cấp các
+                        liệu pháp massage chuyên nghiệp giúp bạn xua tan căng thẳng.
+                    </p>
+                    <a href="{% url 'service1'%}" class="btn btn-outline-danger btn-sm">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dịch vụ 2 -->
+            <div class="col-md-4">
+                <div class="service-card text-center p-4 shadow-sm">
+                    <i class="fas fa-utensils fa-3x text-danger mb-3"></i>
+                    <h5 class="mb-3">Ẩm Thực 5 Sao</h5>
+                    <p>
+                        Buffet sáng, bữa tối sang trọng với thực đơn quốc tế. Đội ngũ đầu bếp tài năng
+                        của chúng tôi sẽ mang đến cho bạn những món ăn tuyệt vời nhất.
+                    </p>
+                    <a href="{% url 'service2'%}" class="btn btn-outline-danger btn-sm">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dịch vụ 3 -->
+            <div class="col-md-4">
+                <div class="service-card text-center p-4 shadow-sm">
+                    <i class="fas fa-swimmer fa-3x text-danger mb-3"></i>
+                    <h5 class="mb-3">Hồ Bơi Vô Cực</h5>
+                    <p>
+                        Đây là nơi lý tưởng để thư giãn và tận hưởng ánh nắng mặt trời. Ngắm hoàng hôn và thư giãn giữa
+                        trời nước bao la tuyệt đẹp.
+                    </p>
+                    <a href="{% url 'service3'%}" class="btn btn-outline-danger btn-sm">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dịch vụ 4 -->
+            <div class="col-md-4">
+                <div class="service-card text-center p-4 shadow-sm">
+                    <i class="fas fa-dumbbell fa-3x text-danger mb-3"></i>
+                    <h5 class="mb-3">Gym & Yoga</h5>
+                    <p>
+                        Phòng tập hiện đại, lớp yoga thư giãn mỗi sáng. Chúng tôi cung cấp các thiết bị
+                        tập luyện tiên tiến và không gian yên tĩnh cho yoga.
+                    </p>
+                    <a href="{% url 'service4'%}" class="btn btn-outline-danger btn-sm">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dịch vụ 5 -->
+            <div class="col-md-4">
+                <div class="service-card text-center p-4 shadow-sm">
+                    <i class="fas fa-car fa-3x text-danger mb-3"></i>
+                    <h5 class="mb-3">Đưa Đón Sân Bay</h5>
+                    <p>
+                        Dịch vụ xe đưa đón tiện lợi, an toàn 24/7. Chúng tôi cam kết mang đến cho bạn trải
+                        nghiệm di chuyển thoải mái và an toàn nhất.
+                    </p>
+                    <a href="{% url 'service5'%}" class="btn btn-outline-danger btn-sm">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dịch vụ 6 -->
+            <div class="col-md-4">
+                <div class="service-card text-center p-4 shadow-sm">
+                    <i class="fas fa-map-marked-alt fa-3x text-danger mb-3"></i>
+                    <h5 class="mb-3">Tour Nội Thành</h5>
+                    <p>
+                        Khám phá các điểm du lịch hấp dẫn tại địa phương, tham quan nhiều nơi mới lạ với hướng dẫn viên
+                        nhiệt tình và
+                        am hiểu địa bàn.
+                    </p>
+                    <a href="{% url 'service6'%}" class="btn btn-outline-danger btn-sm">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 m-3">
+                    <h5 class="text-danger">Liên Hệ Chúng Tôi</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: 180 Cao Lỗ, Phường 4, Quận 8, TP.HCM</p>
+                    <p><i class="fas fa-envelope"></i> Email: dh52201797@student.stu.edu.vn</p>
+                    <p><i class="fas fa-phone"></i> Số điện thoại: 0398 711 773</p>
+                </div>
+                <div class="col-12 col-md-4 m-3">
+                    <h5 class="text-danger">Mạng Xã Hội</h5>
+                    <a href="https://www.facebook.com/" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/" class="text-white"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="col-12 col-md m-3">
+                    <h5 class="text-danger">Thông Tin Cá Nhân</h5>
+                    <p>Thực tập chuyên ngành</p>
+                    <p>Mã Số Sinh Viên: DH52201797</p>
+                    <p>Họ Tên: Trần Thị Kim Yến</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                &copy; 2024 KingHotel. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap Bundle -->
+    <script src="{% static 'asset/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>

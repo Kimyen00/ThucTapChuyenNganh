@@ -1,0 +1,293 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KingHotel - About</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'asset/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'asset/css/about.css' %}">
+  <script src="{% static 'asset/js/about.js' %}"></script>
+  <script src="{% static 'asset/js/preview.js' %}"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" class="bg-body
+">
+  <!-- Navbar -->
+  <!-- Navbar Đen -->
+  <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark " data-bs-theme="dark">
+    <div class="container-fluid px-0">
+      <div class="text-white d-flex align-items-center gap-4">
+        <span><i class="fa-solid fa-phone-volume me-1"></i> 038711111</span>
+        <span><i class="fa-brands fa-rocketchat me-1"></i> Chat with Us</span>
+      </div>
+      <a class="nav-link text-danger text-center" href="{% url 'index'%}">
+        <img src="{% static 'asset/images/logo1.png' %}" alt="Logo" style="height: 80px;">
+      </a>
+      <div class="d-flex">
+        <a class="btn btn-light" href="{% url 'login'%}">
+          <i class="fa-solid fa-user"></i>
+          Đăng Nhập</a>
+        <a class="btn btn-light ms-3" href="{% url 'hoivien'%}">Đăng Ký Hội Viên</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Navbar Chính -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top  border-bottom border-danger ">
+    <div class="container sticky-top">
+      <a class="navbar-brand fw-bold text-danger" href="{% url 'index'%}">
+        <img src="{% static 'asset/images/logo.png' %}" alt="KingHotel Logo" height="40" class="me-2">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <div class="navbar-nav mx-auto">
+          <div class="nav-item me-3"> <a class="nav-link" href="{% url 'index'%}">Home</a></div>
+          <div class="nav-item me-3"> <a class="nav-link active" href="{% url 'about'%}">About</a></div>
+          <div class="nav-item me-3"> <a class="nav-link" href="{% url 'service'%}">Dịch vụ</a></div>
+          <div class="nav-item me-3"> <a class="nav-link" href="{% url 'contact'%}">Contact</a></div>
+        </div>
+        <a class="btn btn-danger ms-lg-3 mt-3 mt-lg-0" href="{% url 'xemphong'%}">Đặt Ngay</a>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Banner nhỏ -->
+  <section class="banner-small p-0 justify-content-center align-content-center "
+    style="background-image: url('{% static 'asset/images/baner.jpg' %}')">
+    <h1 class=" justify-content-center align-content-center fw-bold mb-5 text-light">Giới thiệu về KingHotel</h1>
+  </section>
+
+
+
+
+  <section class="container my-5">
+    <h2 class="text-center text-danger fw-bold mb-4">Các chức năng đã thực hiện</h2>
+
+    <!-- Tổng quan -->
+    <ul class="list-unstyled row row-cols-1 row-cols-md-2 g-3 mb-5">
+      <li><i class="fas fa-check-circle text-success me-2"></i>Responsive: Tương thích với mọi thiết bị.</li>
+      <li><i class="fas fa-check-circle text-success me-2"></i>Sử dụng Bootstrap 5, Font Awesome 6, Google Fonts.</li>
+      <li><i class="fas fa-check-circle text-success me-2"></i>Navbar dính (sticky) khi cuộn trang.</li>
+      <li><i class="fas fa-check-circle text-success me-2"></i>Hiệu ứng hover và icon mượt mà.</li>
+      <li><i class="fas fa-check-circle text-success me-2"></i>Hiệu ứng zoom, highlight ảnh.</li>
+      <li><i class="fas fa-check-circle text-success me-2"></i>Hiệu ứng back-to-top.</li>
+      <li><i class="fas fa-check-circle text-success me-2"></i>Tự động gạch chân trang đang xem trong navbar.</li>
+      <li><i class="fas fa-check-circle text-success me-2"></i>Carousel banner tự động chạy với 5 ảnh đẹp.</li>
+      <li><i class="fas fa-check-circle text-success me-2"></i>Ảnh phóng to khi hover (hover-scale).</li>
+      <li><i class="fas fa-check-circle text-success me-2"></i>Hiệu ứng phóng to khi click ảnh (modal).</li>
+    </ul>
+
+    <!-- Chi tiết -->
+    <ol class="list-group list-group-numbered">
+      <!-- Phòng & Đặt phòng -->
+      <li class="list-group-item">
+        <strong>Trang Phòng & Đặt Phòng</strong>
+        <ul class="mt-2">
+          <li>Hiển thị danh sách các loại phòng (Standard, Deluxe, Suite).</li>
+          <li>Phân loại phòng tự động theo giá tiền.</li>
+          <li>Hiển thị các phân loại phòng tương ứng khi chọn loại phòng.</li>
+          <li>Kiểm tra ngày hợp lệ (không nhỏ hơn hiện tại).</li>
+          <li>Tự động cập nhật loại phòng đã chọn.</li>
+          <li>Hiện tên phòng, giá, loại phòng, các tiện nghi.</li>
+          <li>Tính tổng tiền theo ngày ở.</li>
+
+          <li><a href="{% url 'xemphong'%}" class="link-danger">Xem chi tiết</a></li>
+        </ul>
+      </li>
+
+      <!-- Dịch vụ -->
+      <li class="list-group-item">
+        <strong>Dịch vụ</strong>
+        <ul class="mt-2">
+          <li>Hiển thị 6 dịch vụ nổi bật với trang chi tiết riêng và banner riêng.</li>
+          <li>Mỗi dịch vụ có nút trở về dịch vụ chính.</li>
+          <li>
+            Dịch vụ gồm:
+            <ul class="mt-1 list-unstyled">
+              <li><a href="{% url 'service1'%}" class="link-danger">Spa & Massage</a></li>
+              <li><a href="{% url 'service2'%}" class="link-danger">Ẩm thực 5 sao</a></li>
+              <li><a href="{% url 'service3'%}" class="link-danger">Hồ bơi vô cực</a></li>
+              <li><a href="{% url 'service4'%}" class="link-danger">Gym & Yoga</a></li>
+              <li><a href="{% url 'service5'%}" class="link-danger">Đưa đón sân bay</a></li>
+              <li><a href="{% url 'service6'%}" class="link-danger">Tour nội thành</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Đăng nhập -->
+      <li class="list-group-item">
+        <strong>Trang Đăng Nhập / Đăng Ký Hội Viên</strong>
+        <ul class="mt-2">
+          <li>Form hiện cảnh báo nếu bỏ trống hoặc sai email.</li>
+          <li>Hiệu ứng alert mềm mại, thân thiện người dùng.</li>
+          <li>Tự động focus vào email khi mở trang đăng nhập.</li>
+          <li><a href="{% url 'login'%}" class="link-danger">Login</a> | <a href="{% url 'hoivien'%}" class="link-danger">Đăng ký
+              hội viên</a></li>
+        </ul>
+      </li>
+
+      <!-- Thành tựu -->
+      <li class="list-group-item">
+        <strong>Thành tựu</strong>
+        <ul class="mt-2">
+          <li>Hiển thị thành tựu dạng card đẹp mắt.</li>
+          <li>Có ảnh, mô tả và nút "Xem chi tiết".</li>
+          <li>Click ảnh mở modal xem ảnh lớn.</li>
+          <li><a href="#portfolio" class="link-danger">Xem chi tiết trong trang chính</a></li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+
+  <section class="container my-5">
+
+    <div class="row align-items-center mt-5 mb-5">
+      <div class="col-lg-5 col-12 animate-left">
+        <h2 class="text-danger">Khởi nguồn đam mê phục vụ</h2>
+        <p>KingHotel được thành lập nhằm mang đến những trải nghiệm nghỉ dưỡng đẳng cấp...</p>
+        <p>Chúng tôi không ngừng đổi mới, xây dựng hệ thống khách sạn chuẩn quốc tế.</p>
+      </div>
+      <div class="col-lg-2 d-none d-lg-block"></div>
+      <div class="col-lg-5 col-12 animate-right">
+        <div class="img-wrapper">
+          <img src="{% static 'asset/images/about1.jpg' %}" class="img-fluid rounded" alt="Giới thiệu KingHotel">
+        </div>
+      </div>
+    </div>
+
+    <div class="row align-items-center mt-5 mb-5">
+      <div class="col-lg-5 col-12 animate-left ">
+        <div class="img-wrapper">
+          <img src="{% static 'asset/images/about2.jpg' %}" class="img-fluid rounded" alt="Dịch vụ KingHotel">
+        </div>
+      </div>
+      <div class="col-lg-2 d-none d-lg-block"></div>
+      <div class="col-lg-5 col-12 animate-right order-lg-1">
+        <h2 class="text-danger">Vị trí vàng - Dịch vụ hoàn hảo</h2>
+        <p>Tọa lạc tại trung tâm, KingHotel thuận tiện cho du khách khám phá mọi nơi.</p>
+        <p>Hệ thống phòng hiện đại, tiện nghi và sang trọng.</p>
+      </div>
+    </div>
+
+    <div class="row align-items-center mt-5 mb-5">
+      <div class="col-lg-5 col-12 animate-left">
+        <h2 class="text-danger">Nơi trải nghiệm thăng hoa</h2>
+        <p>Không chỉ lưu trú, chúng tôi còn mang đến những dịch vụ giải trí, spa, sự kiện đẳng cấp.</p>
+        <p>Trải nghiệm trọn vẹn từng khoảnh khắc tại KingHotel.</p>
+      </div>
+      <div class="col-lg-2 d-none d-lg-block"></div>
+      <div class="col-lg-5 col-12 animate-right">
+        <div class="img-wrapper">
+          <img src="{% static 'asset/images/about3.jpg' %}" class="img-fluid rounded" alt="Giới thiệu KingHotel">
+        </div>
+      </div>
+    </div>
+
+    <div class="row align-items-center mt-5 mb-5">
+      <div class="col-lg-5 col-12 animate-left ">
+        <div class="img-wrapper">
+          <img src="{% static 'asset/images/about4.jpg' %}" class="img-fluid rounded" alt="Dịch vụ KingHotel">
+        </div>
+      </div>
+      <div class="col-lg-2 d-none d-lg-block"></div>
+      <div class="col-lg-5 col-12 animate-right order-lg-1">
+        <h2 class="text-danger">Hướng tới tương lai bền vững</h2>
+        <p>Ứng dụng công nghệ xanh, thông minh, phát triển khách sạn thân thiện môi trường.</p>
+        <p>Khẳng định vị thế của KingHotel trong ngành dịch vụ cao cấp.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Thành tựu nổi bật -->
+  <section class="container my-5">
+    <h2 class="text-center text-danger mb-4">Thành Tựu Nổi Bật</h2>
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <div class="card p-3 border-0 shadow achievement">
+          <i class="fas fa-trophy fa-3x text-danger mb-3"></i>
+          <h5>Khách sạn xuất sắc nhất 2023</h5>
+          <p>Được trao giải thưởng danh giá chất lượng dịch vụ và sự hài lòng của khách hàng.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card p-3 border-0 shadow achievement">
+          <i class="fas fa-award fa-3x text-danger mb-3"></i>
+          <h5>Top 10 Resort Được Yêu Thích</h5>
+          <p>Khẳng định vị thế trên bản đồ du lịch quốc tế với phong cách nghỉ dưỡng đẳng cấp.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card p-3 border-0 shadow achievement">
+          <i class="fas fa-leaf fa-3x text-danger mb-3"></i>
+          <h5>Khách sạn Xanh Thân Thiện</h5>
+          <p>Tiên phong trong việc ứng dụng công nghệ xanh, bảo vệ môi trường sống.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center p-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-4 m-3">
+          <h5 class="text-danger">Liên Hệ Chúng Tôi</h5>
+          <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: 180 Cao Lỗ, Phường 4, Quận 8, TP.HCM</p>
+          <p><i class="fas fa-envelope"></i> Email: dh52201797@student.stu.edu.vn</p>
+          <p><i class="fas fa-phone"></i> Số điện thoại: 0398 711 773</p>
+        </div>
+        <div class="col-12 col-md-4 m-3">
+          <h5 class="text-danger">Mạng Xã Hội</h5>
+          <a href="https://www.facebook.com/" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/" class="text-white"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="col-12 col-md m-3">
+          <h5 class="text-danger">Thông Tin Cá Nhân</h5>
+          <p>Thực tập chuyên ngành</p>
+          <p>Mã Số Sinh Viên: DH52201797</p>
+          <p>Họ Tên: Trần Thị Kim Yến</p>
+        </div>
+      </div>
+      <div class="mt-4">
+        &copy; 2024 KingHotel. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <img src="" id="modalImage" class="img-fluid rounded shadow" alt="Preview">
+      </div>
+    </div>
+  </div>
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="btn btn-danger shadow rounded-circle">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap Bundle -->
+  <script src="{% static 'asset/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>

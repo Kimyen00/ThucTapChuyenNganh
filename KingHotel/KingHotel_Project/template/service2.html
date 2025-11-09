@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KingHotel - Ẩm Thực 5 Sao</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'asset/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'asset/css/service-detail.css' %}">
+  <script src="{% static 'asset/js/service-detail.js' %}"></script>
+  <script src="{% static 'asset/js/preview.js' %}"></script>
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" class=".bg-body">
+  <!-- Navbar -->
+  <!-- Navbar Đen -->
+  <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark " data-bs-theme="dark">
+    <div class="container">
+      <div class="text-white d-flex align-items-center gap-4">
+        <span><i class="fa-solid fa-phone-volume me-1"></i> 038711111</span>
+        <span><i class="fa-brands fa-rocketchat me-1"></i> Chat with Us</span>
+      </div>
+      <a class="nav-link text-danger text-center" href="{% url 'index'%}">
+        <img src="{% static 'asset/images/logo1.png' %}" alt="Logo" style="height: 80px;">
+      </a>
+      <div class="d-flex">
+        <a class="btn btn-light" href="{% url 'login'%}">
+          <i class="fa-solid fa-user"></i>
+          Đăng Nhập</a>
+        <a class="btn btn-light ms-3" href="{% url 'hoivien'%}">Đăng Ký Hội Viên</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Navbar Chính -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top border-bottom border-danger ">
+    <div class="container sticky-top">
+      <a class="navbar-brand fw-bold text-danger" href="{% url 'index'%}">
+        <img src="{% static 'asset/images/logo.png' %}" alt="KingHotel Logo" height="40" class="me-2">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <div class="navbar-nav mx-auto">
+          <div class="nav-item me-3"> <a class="nav-link" href="{% url 'index'%}">Home</a></div>
+          <div class="nav-item me-3"> <a class="nav-link" href="{% url 'about'%}">About</a></div>
+          <div class="nav-item me-3"> <a class="nav-link active" href="{% url 'service'%}">Dịch vụ</a></div>
+          <div class="nav-item me-3"> <a class="nav-link" href="{% url 'contact'%}">Contact</a></div>
+        </div>
+        <a class="btn btn-danger ms-lg-3 mt-3 mt-lg-0" href="{% url 'xemphong'%}">Đặt Ngay</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Banner -->
+  <section class="bg-light py-5 text-center">
+    <div class="container">
+      <h1 class="text-danger fw-bold mb-3">Ẩm Thực 5 Sao</h1>
+      <p class="lead text-muted">Trải nghiệm hương vị tinh hoa từ các đầu bếp hàng đầu thế giới</p>
+    </div>
+  </section>
+
+
+
+  <section class="container my-5">
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <img src="{% static 'asset/images/food.jpg' %}" class="img-fluid rounded" alt="Ẩm thực">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="text-danger">Hành trình vị giác đẳng cấp</h2>
+        <p>KingHotel tự hào mang đến hành trình ẩm thực phong phú, từ các món Á tinh tế đến các món Âu sang trọng.</p>
+        <p>Đội ngũ đầu bếp tài năng, tận tâm sáng tạo nên những thực đơn hấp dẫn mỗi ngày cho du khách.</p>
+        <p>Buffet sáng thịnh soạn, thực đơn gọi món đa dạng, tiệc BBQ ngoài trời, trải nghiệm ẩm thực 5 sao đích thực.
+        </p>
+
+        <div class="row mt-4">
+          <div class="col-6 mb-3"><i class="fas fa-utensils text-danger"></i> Buffet sáng miễn phí</div>
+          <div class="col-6 mb-3"><i class="fas fa-wine-glass-alt text-danger"></i> Nhà hàng cao cấp</div>
+          <div class="col-6 mb-3"><i class="fas fa-concierge-bell text-danger"></i> Phục vụ tận phòng</div>
+          <div class="col-6 mb-3"><i class="fas fa-glass-cheers text-danger"></i> Bar Lounge sang trọng</div>
+        </div>
+        <a href="{% url 'xemphong'%}" class="btn btn-danger mt-4">Đặt phòng để trải nghiệm</a>
+
+        <a href="{% url 'service'%}" class="btn btn-danger mt-4">Quay lại Dịch Vụ</a>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <img src="" id="modalImage" class="img-fluid rounded shadow" alt="Preview">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center p-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-4 m-3">
+          <h5 class="text-danger">Liên Hệ Chúng Tôi</h5>
+          <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: 180 Cao Lỗ, Phường 4, Quận 8, TP.HCM</p>
+          <p><i class="fas fa-envelope"></i> Email: dh52201797@student.stu.edu.vn</p>
+          <p><i class="fas fa-phone"></i> Số điện thoại: 0398 711 773</p>
+        </div>
+        <div class="col-12 col-md-4 m-3">
+          <h5 class="text-danger">Mạng Xã Hội</h5>
+          <a href="https://www.facebook.com/" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/" class="text-white"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="col-12 col-md m-3">
+          <h5 class="text-danger">Thông Tin Cá Nhân</h5>
+          <p>Thực tập chuyên ngành</p>
+          <p>Mã Số Sinh Viên: DH52201797</p>
+          <p>Họ Tên: Trần Thị Kim Yến</p>
+        </div>
+      </div>
+      <div class="mt-4">
+        &copy; 2024 KingHotel. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap Bundle -->
+  <script src="{% static 'asset/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>

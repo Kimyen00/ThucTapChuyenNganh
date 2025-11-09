@@ -1,0 +1,43 @@
+  body {
+      background: linear-gradient(135deg, #ffb3fa, #ffa491);
+      min-height: 100vh;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      max-width: 400px;
+      margin: 4rem auto;
+    }
+
+    #alertContainer {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1055;
+    }
+
+    .custom-alert {
+      opacity: 0;
+      transition: all 0.5s ease;
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 500;
+      margin-top: 10px;
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-10px);
+    }
+
+    .custom-alert.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .custom-alert-danger {
+      background-color: #e74c3c;
+    }
