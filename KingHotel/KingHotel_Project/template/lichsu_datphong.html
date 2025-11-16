@@ -1,10 +1,207 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lịch Sử Đặt Phòng - KingHotel</title>
+
+    <link rel="stylesheet" href="{% static 'asset/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+
+    <style>
+        .page-header {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #dc3545;
+        }
+
+        .booking-table th {
+            font-weight: 700;
+            color: #343a40;
+            vertical-align: middle;
+        }
+
+        /* Định nghĩa màu cho các trạng thái */
+        .badge-pending {
+            background-color: #ffc107;
+            color: #212529;
+        }
+
+        .badge-confirmed {
+            background-color: #28a745;
+        }
+
+        .badge-cancelled {
+            background-color: #dc3545;
+        }
+    </style>
+
 </head>
+
 <body>
-$END$
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top border-bottom border-danger ">
+        <div class="container sticky-top">
+            <a class="navbar-brand fw-bold text-danger" href="{% url 'index'%}">
+                <img src="{% static 'asset/images/logo.png' %}" alt="KingHotel Logo" height="40" class="me-2">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <div class="navbar-nav mx-auto">
+                    <div class="nav-item me-3"> <a class="nav-link" href="{% url 'index'%}">Home</a></div>
+                    <div class="nav-item me-3"> <a class="nav-link" href="{% url 'about'%}">About</a></div>
+                    <div class="nav-item me-3"> <a class="nav-link" href="{% url 'service'%}">Dịch vụ</a></div>
+                    <div class="nav-item me-3"> <a class="nav-link" href="{% url 'contact'%}">Contact</a></div>
+                </div>
+                <a class="btn btn-danger ms-lg-3 mt-3 mt-lg-0" href="{% url 'xemphong'%}">Đặt Ngay</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 class="text-danger fw-bold"><i class="fas fa-history me-2"></i> Lịch Sử Đặt Phòng</h1>
+            <p class="lead">Các đơn đặt phòng của bạn tại KingHotel.</p>
+        </div>
+    </div>
+
+    <main class="container mb-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover booking-table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Mã Đơn</th>
+                                <th>Ngày Đặt</th>
+                                <th>Nhận Phòng</th>
+                                <th>Trả Phòng</th>
+                                <th>Chi Tiết Phòng</th>
+                                <th>Tổng Tiền</th>
+                                <th>Trạng Thái</th>
+                                <th>Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>KH-001</td>
+                                <td>10/11/2025</td>
+                                <td>20/12/2025</td>
+                                <td>22/12/2025</td>
+                                <td>1x Deluxe Room</td>
+                                <td>4.500.000 VNĐ</td>
+                                <td><span class="badge badge-confirmed text-white">Đã Xác Nhận</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#detailModal">Chi Tiết</button>
+                                    <button class="btn btn-sm btn-outline-danger" disabled>Hủy</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>KH-002</td>
+                                <td>15/10/2025</td>
+                                <td>01/11/2025</td>
+                                <td>03/11/2025</td>
+                                <td>2x Standard Room</td>
+                                <td>3.000.000 VNĐ</td>
+                                <td><span class="badge badge-pending">Chờ Thanh Toán</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#detailModal">Chi Tiết</button>
+                                    <button class="btn btn-sm btn-danger">Hủy Đơn</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>KH-003</td>
+                                <td>05/09/2025</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1x Suite</td>
+                                <td>7.000.000 VNĐ</td>
+                                <td><span class="badge badge-cancelled text-white">Đã Hủy</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#detailModal">Chi Tiết</button>
+                                    <button class="btn btn-sm btn-outline-danger" disabled>Hủy</button>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-info text-center mt-4">
+                    Bạn chưa có đơn đặt phòng nào. <a href="{% url 'xemphong'%}" class="alert-link">Đặt phòng ngay!</a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailModalLabel">Chi Tiết Đơn Hàng: KH-002</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Ngày Đặt:</strong> 15/10/2025</p>
+                    <p><strong>Trạng Thái:</strong> <span class="badge badge-pending">Chờ Thanh Toán</span></p>
+                    <hr>
+                    <h6>Thông tin Phòng</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">2 x Standard Room (Giá: 1.500.000 VNĐ/đêm)</li>
+                        <li class="list-group-item">Số đêm: 2</li>
+                    </ul>
+                    <hr>
+                    <h6>Thông tin Khách hàng</h6>
+                    <p>Tên Khách: Nguyễn Văn A</p>
+                    <p>Email: anva@example.com</p>
+                    <p>Số Điện Thoại: 090xxxxxxx</p>
+                    <hr>
+                    <h5 class="text-danger">Tổng Cộng: 3.000.000 VNĐ</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt me-1"></i> Hủy Đơn</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center p-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 m-3">
+                    <h5 class="text-danger">Liên Hệ Chúng Tôi</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> 180 Cao Lỗ, P.4, Q.8, TP.HCM</p>
+                    <p><i class="fas fa-envelope"></i> dh52201797@student.stu.edu.vn</p>
+                    <p><i class="fas fa-phone"></i> 0398 711 773</p>
+                </div>
+                <div class="col-12 col-md-4 m-3">
+                    <h5 class="text-danger">Mạng Xã Hội</h5>
+                    <a href="https://www.facebook.com/" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/" class="text-white"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="col-12 col-md m-3">
+                    <h5 class="text-danger">Thông Tin Cá Nhân</h5>
+                    <p>Thực tập chuyên ngành</p>
+                    <p>Mã Số Sinh Viên: DH52201797</p>
+                    <p>Họ Tên: Trần Thị Kim Yến</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                &copy; 2024 KingHotel. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'asset/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

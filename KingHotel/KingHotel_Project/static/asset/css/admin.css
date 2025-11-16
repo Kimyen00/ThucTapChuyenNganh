@@ -1,0 +1,79 @@
+/* ===== admin_dashboard.css (Tối giản) ===== */
+
+:root {
+  --sidebar-width: 250px;
+  --color-king-red: #dc3545; /* Màu đỏ chính */
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #f0f2f5;
+}
+
+/* ---------------------------------------------------- */
+/* 1. Sidebar Layout (Sử dụng Flexbox cho bố cục) */
+/* ---------------------------------------------------- */
+
+#wrapper {
+    /* Đảm bảo nội dung chính và sidebar cùng nằm trên một hàng */
+    display: flex;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  width: var(--sidebar-width);
+  margin-left: calc(-1 * var(--sidebar-width)); /* Mặc định ẩn */
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 1.5rem 1.25rem;
+  font-weight: bold;
+}
+
+/* Mục đang hoạt động (active) */
+#sidebar-wrapper .list-group-item.active {
+    background-color: #cc0000 !important; /* Màu đỏ đậm cho mục đang chọn */
+    font-weight: bold;
+}
+
+/* Ẩn/Hiện Sidebar khi có class .toggled trên #wrapper */
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+/* ---------------------------------------------------- */
+/* 2. Main Content & Responsive */
+/* ---------------------------------------------------- */
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+/* Màn hình Desktop (Sidebar luôn hiện) */
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: calc(-1 * var(--sidebar-width));
+  }
+}
+
+/* ---------------------------------------------------- */
+/* 3. KPI Cards Styling */
+/* ---------------------------------------------------- */
+
+.kpi-card .card-body h6 {
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+}
+
+.kpi-card .card-body h2 {
+    font-size: 2rem;
+}
+
+.card-header {
+    font-size: 0.9rem;
+    font-weight: bold;
+}

@@ -7,11 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KingHotel - Đặt Phòng</title>
 
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="{% static 'asset/bootstrap/css/bootstrap.min.css' %}">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
   <link rel="stylesheet" href="{% static 'asset/css/xemphong.css' %}">
   <script src="{% static 'asset/js/xemphong.js' %}"></script>
@@ -20,8 +17,6 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" class=".bg-body">
-  <!-- Navbar -->
-  <!-- Navbar Đen -->
   <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark " data-bs-theme="dark">
     <div class="container">
       <div class="text-white d-flex align-items-center gap-4">
@@ -36,14 +31,14 @@
           <i class="fa-solid fa-user"></i>
           Đăng Nhập</a>
         <a class="btn btn-light ms-3" href="{% url 'hoivien'%}">Đăng Ký Hội Viên</a>
+        <a class="btn btn-light ms-3" href="{% url 'lichsu_datphong'%}">Lịch Sử Đơn Hàng</a>
       </div>
 
     </div>
   </nav>
 
-  <!-- Navbar Chính -->
   <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top border-bottom border-danger ">
-    <div class="container sticky-top">
+    <div class="container">
       <a class="navbar-brand fw-bold text-danger" href="{% url 'index'%}">
         <img src="{% static 'asset/images/logo.png' %}" alt="KingHotel Logo" height="40" class="me-2">
       </a>
@@ -64,29 +59,32 @@
       </div>
     </div>
   </nav>
-  </section>
 
   <section class="container my-5">
     <div class="row">
-    <!-- Form đơn đặt phòng -->
-      <div class="col-lg-4">
+    <div class="col-lg-4">
         <div class="card shadow p-4 sticky-top" style="top: 80px;" id="bookingForm">
           <h4 class="text-danger mb-4">Đơn đặt phòng của tôi</h4>
 
-          <form>
+          <form id="reservationForm" method="POST" action="{% url 'datphong_thanhcong' %}">
+            {% csrf_token %}
             <div class="mb-3">
               <label for="checkin" class="form-label">Ngày nhận phòng</label>
-              <input type="date" class="form-control" id="checkin">
+              <input type="date" class="form-control" id="checkin" name="checkin" required>
             </div>
 
             <div class="mb-3">
               <label for="checkout" class="form-label">Ngày trả phòng</label>
-              <input type="date" class="form-control" id="checkout">
+              <input type="date" class="form-control" id="checkout" name="checkout" required>
             </div>
+
+            <input type="hidden" id="selectedRoomName" name="room_name" required>
+            <input type="hidden" id="selectedRoomPrice" name="price_per_night" required>
+            <input type="hidden" id="totalNights" name="total_nights" required>
 
             <div class="mb-3">
               <label for="roomType" class="form-label">Loại phòng</label>
-              <select class="form-select" id="roomType">
+              <select class="form-select" id="roomType" name="room_type">
                 <option selected>Chọn phòng...</option>
                 <option value="standard">Standard Room</option>
                 <option value="deluxe">Deluxe Room</option>
@@ -94,18 +92,16 @@
               </select>
             </div>
 
-            <!-- Thêm phần tử hiển thị tổng tiền -->
-            <p id="totalPrice" class="text-danger fw-bold"></p>
+            <p id="totalPrice" class="text-danger fw-bold">Tổng tiền: 0 VNĐ</p>
 
-            <button type="submit" class="btn btn-danger w-100">Xác nhận đặt phòng</button>
+            <button type="submit" class="btn btn-danger w-100" id="submitBookingBtn">Xác nhận đặt phòng</button>
           </form>
-        </div>
+          </div>
       </div>
       <div class="col-lg-8">
         <h3 class="text-danger mb-4 ">Chọn phòng</h3>
 
-        <!-- Phòng 1 -->
-        <div class="room-card card mb-4 shadow-sm" data-price="1400000">
+        <div class="room-card card mb-4 shadow-sm" data-price="1400000" data-type="deluxe">
           <div class="row g-0 align-items-center">
             <div class="col-md-4">
               <div class="room-image-wrapper">
@@ -137,8 +133,7 @@
           </div>
         </div>
 
-        <!-- Phòng 2 -->
-        <div class="room-card card mb-4 shadow-sm" data-price="1400000">
+        <div class="room-card card mb-4 shadow-sm" data-price="1400000" data-type="deluxe">
           <div class="row g-0 align-items-center">
             <div class="col-md-4">
               <div class="room-image-wrapper">
@@ -170,8 +165,7 @@
           </div>
         </div>
 
-        <!-- Phòng 3 -->
-        <div class="room-card card mb-4 shadow-sm" data-price="1850000">
+        <div class="room-card card mb-4 shadow-sm" data-price="1850000" data-type="deluxe">
           <div class="row g-0 align-items-center">
             <div class="col-md-4">
               <div class="room-image-wrapper">
@@ -207,8 +201,7 @@
           </div>
         </div>
 
-        <!-- Phòng 4 -->
-        <div class="room-card card mb-4 shadow-sm" data-price="2750000">
+        <div class="room-card card mb-4 shadow-sm" data-price="2750000" data-type="suite">
           <div class="row g-0 align-items-center">
             <div class="col-md-4">
               <div class="room-image-wrapper">
@@ -245,8 +238,7 @@
         </div>
 
 
-        <!-- Phòng 5 -->
-        <div class="room-card card mb-4 shadow-sm" data-price="2205000">
+        <div class="room-card card mb-4 shadow-sm" data-price="2205000" data-type="suite">
           <div class="row g-0 align-items-center">
             <div class="col-md-4">
               <div class="room-image-wrapper">
@@ -284,8 +276,7 @@
           </div>
         </div>
 
-        <!-- Phòng 6 -->
-        <div class="room-card card mb-4 shadow-sm" data-price="900000">
+        <div class="room-card card mb-4 shadow-sm" data-price="900000" data-type="standard">
           <div class="row g-0 align-items-center">
             <div class="col-md-4">
               <div class="room-image-wrapper">
@@ -319,8 +310,7 @@
             </div>
           </div>-
         </div>
-        <!-- Phòng 7 -->
-        <div class="room-card card mb-4 shadow-sm" data-price="780000">
+        <div class="room-card card mb-4 shadow-sm" data-price="780000" data-type="standard">
           <div class="row g-0 align-items-center">
             <div class="col-md-4">
               <div class="room-image-wrapper">
@@ -355,12 +345,8 @@
         </div>
       </div>
 
-  
-
     </div>
   </section>
-
-
 
   <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -371,7 +357,6 @@
   </div>
 
 
-  <!-- Footer -->
   <footer class="bg-dark text-white text-center p-4 mt-5">
     <div class="container">
       <div class="row">
@@ -402,7 +387,6 @@
   </footer>
 
 
-  <!-- Bootstrap Bundle -->
   <script src="{% static 'asset/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
 </body>

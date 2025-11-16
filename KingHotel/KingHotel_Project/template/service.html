@@ -15,6 +15,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'asset/css/service.css' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/about.css' %}">
     <script src="{% static 'asset/js/service.js' %}"></script>
 </head>
 
@@ -42,7 +43,7 @@
 
     <!-- Navbar Chính -->
     <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top border-bottom border-danger ">
-        <div class="container sticky-top">
+        <div class="container">
             <a class="navbar-brand fw-bold text-danger" href="{% url 'index'%}">
                 <img src="{% static 'asset/images/logo.png' %}" alt="KingHotel Logo" height="40" class="me-2">
             </a>
@@ -65,9 +66,13 @@
     </nav>
 
 
-    <!-- Banner nhỏ -->
-    <section class="banner-small" style="background-image: url('{% static 'asset/images/baner.jpg' %}')">
-    </section>
+  <!-- Banner nhỏ -->
+  <section class="banner-small p-0 justify-content-center align-content-center "
+    style="background-image: url('{% static 'asset/images/baner.jpg' %}')">
+    <h1 class=" justify-content-center align-content-center fw-bold mb-5 text-light">Dịch vụ của chúng tôi</h1>
+  </section>
+
+
 
 
     <section class="container my-5">

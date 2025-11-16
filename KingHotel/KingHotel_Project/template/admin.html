@@ -1,10 +1,165 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - KingHotel</title>
+    <link rel="stylesheet" href="{% static 'asset/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/admin.css' %}">
 </head>
+
 <body>
-$END$
+
+    <div class="d-flex" id="wrapper">
+        <div class="bg-dark border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading text-danger fw-bold fs-4 p-4 border-bottom border-danger">KingHotel ADMIN</div>
+            <div class="list-group list-group-flush admin-nav">
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white active">
+                    <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="fas fa-bed me-2"></i> Quản lý Phòng
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="fas fa-calendar-check me-2"></i> Quản lý Đơn hàng
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="fas fa-users me-2"></i> Quản lý Khách hàng
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="fas fa-chart-line me-2"></i> Quản lý Doanh thu
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="fas fa-cog me-2"></i> Cài đặt
+                </a>
+            </div>
+        </div>
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top admin-top-nav">
+                <button class="btn btn-outline-dark me-2" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li><div class="nav-item me-3"> <a class="nav-link" href="{% url 'index'%}">Home</a></div></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-bell"></i> Thông báo</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle me-1"></i> Admin Name
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Hồ sơ</a>
+                                <a class="dropdown-item" href="#">Đăng xuất</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid p-4">
+                <h1 class="mt-4 mb-4 text-danger fw-bold">Tổng Quan Hệ Thống</h1>
+
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card shadow-sm border-start border-danger border-4 h-100 kpi-card">
+                            <div class="card-body">
+                                <h6 class="text-uppercase text-muted">Doanh Thu Tháng Này</h6>
+                                <h2 class="text-dark fw-bold">55.000.000đ</h2>
+                                <span class="text-success small"><i class="fas fa-arrow-up"></i> +15% so với tháng trước</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card shadow-sm border-start border-warning border-4 h-100 kpi-card">
+                            <div class="card-body">
+                                <h6 class="text-uppercase text-muted">Đơn Chờ Xử lý</h6>
+                                <h2 class="text-dark fw-bold">8</h2>
+                                <span class="text-warning small">Cần kiểm tra ngay</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card shadow-sm border-start border-success border-4 h-100 kpi-card">
+                            <div class="card-body">
+                                <h6 class="text-uppercase text-muted">Tỷ Lệ Lấp Đầy</h6>
+                                <h2 class="text-dark fw-bold">85%</h2>
+                                <span class="text-info small">5/7 phòng đang được sử dụng</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card shadow-sm border-start border-info border-4 h-100 kpi-card">
+                            <div class="card-body">
+                                <h6 class="text-uppercase text-muted">Khách hàng Mới</h6>
+                                <h2 class="text-dark fw-bold">2</h2>
+                                <span class="text-muted small">Đăng ký trong 7 ngày qua</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-danger text-white fw-bold">
+                                Hoạt Động Gần Đây
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <i class="fas fa-clock text-warning me-2"></i> Đơn KH-105: Chờ thanh toán (Phòng Suite) - <span class="text-muted small">5 phút trước</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-check-circle text-success me-2"></i> Đơn KH-104: Đã xác nhận (Phòng Deluxe) - <span class="text-muted small">1 giờ trước</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-user-plus text-info me-2"></i> Hội viên mới: Trần Văn B đã đăng ký. - <span class="text-muted small">3 giờ trước</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-secondary text-white fw-bold">
+                                Thao Tác Nhanh
+                            </div>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <a href="#" class="btn btn-danger mb-3">
+                                    <i class="fas fa-plus me-2"></i> Thêm Phòng Mới
+                                </a>
+                                <a href="#" class="btn btn-warning text-dark mb-3">
+                                    <i class="fas fa-cogs me-2"></i> Cập nhật Giá/Trạng thái
+                                </a>
+                                <a href="#" class="btn btn-success">
+                                    <i class="fas fa-file-invoice-dollar me-2"></i> Xem Báo cáo Doanh thu
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="{% static 'asset/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function(e) {
+            e.preventDefault();
+            document.getElementById("wrapper").classList.toggle("toggled");
+        });
+    </script>
 </body>
+
 </html>

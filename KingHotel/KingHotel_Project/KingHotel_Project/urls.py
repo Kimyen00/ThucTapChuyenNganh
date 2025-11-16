@@ -33,5 +33,7 @@ urlpatterns = [
     path("service5",views.service5,name='service5'),
     path("service6",views.service6,name='service6'),
     path("xemphong",views.xemphong,name='xemphong'),
-
+    path("lichsu_datphong", views.lichsu_datphong, name='lichsu_datphong'),
+    path('datphong_thanhcong', views.datphong_thanhcong, name='datphong_thanhcong'),
+    path('admin', views.admin, name='admin'),
 ]

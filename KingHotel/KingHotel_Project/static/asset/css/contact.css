@@ -3,7 +3,7 @@
     }
 
     .login-container {
-      background: #fff;
+      background: white;
       padding: 2.5rem;
       border-radius: 1rem;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
@@ -40,4 +40,11 @@
       background-color: #e74c3c;
     }
 
- 
+ /* Banner nhỏ */
+.banner-small {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  filter: brightness(0.8);
+}

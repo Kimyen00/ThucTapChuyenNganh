@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -41,4 +41,13 @@ def service6(request):
 def xemphong(request):
     return render(request, 'xemphong.html')
 
+def datphong_thanhcong(request):
+    return render(request, 'datphong_thanhcong.html')
 
+def lichsu_datphong(request):
+    return render(request, 'lichsu_datphong.html')
+
+def datphong_thanhcong(request):
+    return render(request, 'datphong_thanhcong.html')
+def admin(request):
+    return render(request, 'admin.html')
