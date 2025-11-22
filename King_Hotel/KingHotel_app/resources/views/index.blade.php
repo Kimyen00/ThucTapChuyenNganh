@@ -1,0 +1,266 @@
+
+  @extends('layout/home')
+@section('body') 
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top border-bottom border-danger ">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-danger" href="{{ route('home') }}">
+        <img src="asset/images/logo.png" alt="KingHotel Logo" height="40" class="me-2">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <div class="navbar-nav mx-auto">
+          <div class="nav-item me-3"> <a class="nav-link active" href="{{ route('home') }}">Home</a></div>
+          <div class="nav-item me-3"> <a class="nav-link" href="#portfolio">Thành Tựu</a></div>
+          <div class="nav-item me-3"> <a class="nav-link" href="{{ route('about') }}">About</a></div>
+          <div class="nav-item me-3"> <a class="nav-link" href="{{ route('service') }}">Dịch vụ</a></div>
+          <div class="nav-item me-3"> <a class="nav-link" href="{{ route('contact') }}">Contact</a></div>
+        </div>
+        <a class="btn btn-danger ms-lg-3 mt-3 mt-lg-0" href="{{ route('rooms') }}">Đặt Ngay</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero" class="position-relative">
+
+    <div id="bannerCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="asset/images/baner.jpg" class="d-block w-100" alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+          <img src="asset/images/banner7.jpg" class="d-block w-100" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+          <img src="asset/images/banner2.jpg" class="d-block w-100" alt="Slide 3">
+        </div>
+        <div class="carousel-item">
+          <img src="asset/images/banner8.jpg" class="d-block w-100" alt="Slide 4">
+        </div>
+        <div class="carousel-item">
+          <img src="asset/images/banner6.jpg" class="d-block w-100" alt="Slide 5">
+        </div>
+      </div>
+
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="4"></button>
+      </div>
+
+      <div class="banner-overlay position-absolute top-50 start-50 translate-middle text-center text-white">
+        <h1 class="display-4 fw-bold text-light">Chào Mừng Đến Với <span class="text-danger">KingHotel</span>
+        </h1>
+        <p class="lead">Trải nghiệm đỉnh cao, sang trọng & thư giãn tuyệt đối</p>
+
+        <form class="d-flex justify-content-center mt-5 flex-wrap" style="gap: 10px;">
+          <input type="search" class="form-control w-75" placeholder="Tìm kiếm phòng..." style="min-width: 70%;">
+          <a href="{{ route('rooms') }}" class="btn btn-danger px-4 py-2">Đặt Ngay</a>
+        </form>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="about" class="container my-5">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-lg-8 mb-5 ">
+        <h2 class="text-danger">Về Chúng Tôi</h2>
+        <p class="text-dark">King là sự pha trộn giữa nét truyền thống và tính đương đại. Chúng tôi cùng đối tác
+          đầu tư
+          Indochina Kajima kiến thiết thương hiệu KingKing Hotels trở thành khách sạn mang phong cách 'boutique' đỉnh
+          nhất
+          Việt Nam. Hai nhà đầu tư tiên phong cùng hợp lực để định nghĩa lại khái niệm 'sang trọng mang giá cả
+          phải
+          chăng' ở Việt Nam… và hơn thế nữa. Điều khiến King trở nên khác biệt chính là phong cách thiết kế
+          sang trọng,
+          thời thượng + sáng tạo các chức năng, tiện nghi dựa trên sự am hiểu tường tận các giá trị truyền
+          thống của
+          Việt Nam. Quá đỉnh! Thêm vào đó, yếu tố cốt lõi tạo nên King chính là dịch vụ khách hàng chân phương
+          và chân
+          thành cũng như trải nghiệm khách hàng hơi bị chất. Dân tình đã phải ohh wow khi King ra mắt.</p>
+        <a href="{{ route('about') }}" class="link-danger ">Xem thêm</a>
+      </div>
+      <div class="col-lg-4 justify-content-center">
+        <img src="asset/images/home1.jpg" class="img-fluid rounded float-lg-none d-block w-100" alt="About Us">
+
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="container my-5">
+    <h2 class="text-center text-danger mb-4">Thành Tựu & Giải Thưởng</h2>
+
+    <div class="row text-center mb-5">
+      <div class="col-md-4 mb-4">
+        <div class="card img_gt overflow-hidden">
+          <a href="#">
+            <img src="asset/images/giaithuong1.jpg" class="img-fluid rounded hover-scale" alt="Award 1">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Được bình chọn là khách sạn xuất sắc nhất 2023</h5>
+            <p class="card-text">Được đánh giá tinh tế, dịch vụ xuất sắc và đẳng cấp thế giới.</p>
+            <a href="#" class="btn btn-danger">Xem Chi Tiết</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card img_gt overflow-hidden">
+          <a href="#">
+            <img src="asset/images/giaithuong2.jpg" class="img-fluid rounded hover-scale" alt="Award 2">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Top 10 Resort được khách hàng yêu thích nhất</h5>
+            <p class="card-text">Nơi đây níu chân du khách bởi vẻ đẹp thiên nhiên và sự tinh tế trong dịch
+              vụ.</p>
+            <!-- <a href="#" class="btn btn-danger">Xem Chi Tiết</a> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card img_gt overflow-hidden">
+          <a href="#">
+            <img src="asset/images/home1.jpg" class="img-fluid rounded hover-scale" alt="Award 3">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Khách sạn xanh thân thiện môi trường</h5>
+            <p class="card-text">Không gian rộng rãi, trong lành, là lựa chọn lý tưởng cho kỳ nghỉ của bạn.
+            </p>
+            <!-- <a href="#" class="btn btn-danger">Xem Chi Tiết</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="container my-5">
+    <h2 class="text-center text-danger mb-4">Các Loại Phòng</h2>
+    <div class="row text-center mb-5">
+
+      <div class="col-md-4 mb-4">
+        <div class="card img_gt overflow-hidden">
+          <div id="carouselStandard" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner" style="height: 300px;">
+              <div class="carousel-item active">
+                <img src="asset/images/phong6.jpg" class="d-block w-100" alt="Standard Room 1"
+                  style="height: 300px; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="asset/images/phong7.jpg" class="d-block w-100" alt="Standard Room 2"
+                  style="height: 300px; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Standard Room</h5>
+            <p class="card-text">Phòng tiêu chuẩn, cung cấp tiện nghi cơ bản, đảm bảo một kỳ nghỉ hiệu quả và
+              thoải mái.</p>
+            <a href="{{ route('rooms') }}" class="btn btn-danger">Xem & Đặt ngay</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card img_gt overflow-hidden">
+          <div id="carouselDeluxe" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner" style="height: 300px;">
+              <div class="carousel-item active">
+                <img src="asset/images/phong1.jpg" class="d-block w-100" alt="Deluxe Room 1"
+                  style="height: 300px; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="asset/images/phong2.jpg" class="d-block w-100" alt="Deluxe Room 2"
+                  style="height: 300px; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="asset/images/phong3.jpg" class="d-block w-100" alt="Deluxe Room 3"
+                  style="height: 300px; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Deluxe Room</h5>
+            <p class="card-text">Rộng rãi hơn, nội thất tinh tế, mang đến trải nghiệm nghỉ dưỡng thư thái với
+              tầm nhìn đẹp.</p>
+            <a href="{{ route('rooms') }}" class="btn btn-danger">Xem & Đặt ngay</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card img_gt overflow-hidden">
+          <div id="carouselSuite" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner" style="height: 300px;">
+              <div class="carousel-item active">
+                <img src="asset/images/phong5.jpg" class="d-block w-100" alt="Suite Room 1"
+                  style="height: 300px; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="asset/images/phong4.jpg" class="d-block w-100" alt="Suite Room 2"
+                  style="height: 300px; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Suite Room</h5>
+            <p class="card-text">Không gian sống sang trọng riêng biệt với phòng khách, thể hiện đẳng cấp và
+              dịch vụ độc quyền.</p>
+            <a href="{{ route('rooms') }}" class="btn btn-danger">Xem & Đặt ngay</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services" class="container my-5">
+    <h2 class="text-center text-danger mb-4">Dịch Vụ Tiêu Biểu</h2>
+    <div class="row text-center">
+      <div class="col-md-3">
+        <div class="card p-3 border border-danger-subtle">
+          <i class="fas fa-spa" style="font-size:40px;color:#e60000;"></i>
+          <h5>Spa Cao Cấp</h5>
+          <p>Thư giãn dịch vụ Spa 5 sao.</p>
+          <a href="{{ route('service-spa') }}" class="text-danger">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3 border border-danger-subtle">
+          <i class="fas fa-utensils" style="font-size:40px;color:#e60000;"></i>
+          <h5>Buffet Sáng</h5>
+          <p>Buffet sáng phong phú Á - Âu.</p>
+          <a href="{{ route('service-foods') }}" class="text-danger">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3 border border-danger-subtle">
+          <i class="fas fa-shuttle-van" style="font-size:40px;color:#e60000;"></i>
+          <h5>Đưa Đón Sân Bay</h5>
+          <p>Miễn phí đưa đón sân bay.</p>
+          <a href="{{ route('service-car') }}" class="text-danger">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="col-md-3 mt-2">
+        <div class="card p-3 border border-danger-subtle">
+          <i class="fas fa-map-marked-alt" style="font-size:40px;color:#e60000;"></i>
+          <h5>Tour Nội Thành</h5>
+          <p>Khám phá địa điểm nổi tiếng.</p>
+          <a href="{{ route('service-tour') }}" class="text-danger">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+@endsection

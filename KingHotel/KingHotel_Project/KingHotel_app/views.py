@@ -51,3 +51,6 @@ def datphong_thanhcong(request):
     return render(request, 'datphong_thanhcong.html')
 def admin(request):
     return render(request, 'admin.html')
+
+def customer(request):
+    return render(request, 'customer.html')

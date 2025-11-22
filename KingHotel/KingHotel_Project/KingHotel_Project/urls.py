@@ -36,4 +36,6 @@ urlpatterns = [
     path("lichsu_datphong", views.lichsu_datphong, name='lichsu_datphong'),
     path('datphong_thanhcong', views.datphong_thanhcong, name='datphong_thanhcong'),
     path('admin', views.admin, name='admin'),
+
+    path("customer", views.customer, name='customer'),
 ]
